@@ -20,6 +20,7 @@ class HLTDisplacedEgammaFilter : public HLTFilter {
    public:
       explicit HLTDisplacedEgammaFilter(const edm::ParameterSet&);
       ~HLTDisplacedEgammaFilter();
+      static void fillDescriptions(edm::ConfigurationDescriptions & descriptions);
       virtual bool hltFilter(edm::Event&, const edm::EventSetup&, trigger::TriggerFilterObjectWithRefs & filterproduct);
 
    private:
@@ -31,8 +32,11 @@ class HLTDisplacedEgammaFilter : public HLTFilter {
       edm::InputTag rechitsEB ;
       edm::InputTag rechitsEE ;
 
+      bool EBOnly ; 
       double sMin_min ;
       double sMin_max ;
+      double sMaj_min ;
+      double sMaj_max ;
       double seedTimeMin ;
       double seedTimeMax ;
 
